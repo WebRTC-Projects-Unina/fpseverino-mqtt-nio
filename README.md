@@ -1,3 +1,19 @@
+# WebRTC Project Unina
+
+This project was developed for the "Web and Real Time Communication Systems" course at the University of Naples Federico II (A.Y. 2025/2026).
+
+The goal of this project is to rewrite [MQTT NIO](https://github.com/swift-server-community/mqtt-nio), a [Swift NIO](https://github.com/apple/swift-nio) based MQTT client, to adopt modern Swift concurrency features and best practices such as `async`/`await`, actors, and with-style methods.
+This rewrite will become MQTT NIO v3.
+Progress and planned features for MQTT NIO v3 are tracked in [swift-server-community/mqtt-nio#176](https://github.com/swift-server-community/mqtt-nio/issues/176).
+
+The `v2` branch contains MQTT NIO version 2, the current stable release.
+The `v3` branch hosts the ongoing development of version 3.
+Development of MQTT NIO v3 takes place in a fork of the original repository at https://github.com/fpseverino/mqtt-nio.
+This repository serves as a mirror to keep track of the changes made in the fork.
+All pull requests in the fork have been reviewed and approved by the project's original creator and maintainer, [Adam Fowler](https://github.com/adam-fowler).
+
+What follows is the original README of MQTT NIO v2.
+
 # MQTT NIO
 
 [![sswg:sandbox|94x20](https://img.shields.io/badge/sswg-sandbox-lightgrey.svg)](https://github.com/swift-server/sswg/blob/master/process/incubation.md#sandbox-level)
