@@ -22,9 +22,9 @@ struct ByteToMQTTMessageDecoder: NIOSingleStepByteToMessageDecoder {
 
     typealias InboundOut = MQTTPacket
 
-    let version: MQTTClient.Version
+    let version: MQTTConnectionConfiguration.Version
 
-    init(version: MQTTClient.Version) {
+    init(version: MQTTConnectionConfiguration.Version) {
         self.version = version
     }
 
