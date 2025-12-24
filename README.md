@@ -14,6 +14,8 @@ Development of MQTT NIO v3 takes place in a fork of the original repository at h
 This repository serves as a mirror to keep track of the changes made in the fork.
 All pull requests in the fork have been reviewed and approved by the project's original creator and maintainer, [Adam Fowler](https://github.com/adam-fowler).
 
+You can see MQTT NIO v3 in action in [EmmeQuTiTi](https://github.com/fpseverino/EmmeQuTiTi), a sample iOS app that demonstrates the use of MQTT NIO in an iOS environment.
+
 What follows is the original README of MQTT NIO v2.
 
 # MQTT NIO
