@@ -20,9 +20,9 @@ All pull requests in the fork have been reviewed and approved by the project's o
 
 ### iOS Sample App
 
-You can see MQTT NIO v3 in action in [EmmeQuTiTi](https://github.com/fpseverino/EmmeQuTiTi), a sample iOS app that demonstrates the use of MQTT NIO in an iOS environment.
+<p align="center"><img width="96" height="96" alt="EmmeQuTiTi" src="https://github.com/user-attachments/assets/c864261d-e53b-4608-b4b1-ea4bf6f41fc6"></p>
 
-<img width="96" height="96" alt="EmmeQuTiTi" src="https://github.com/user-attachments/assets/c864261d-e53b-4608-b4b1-ea4bf6f41fc6">
+You can see MQTT NIO v3 in action in [EmmeQuTiTi](https://github.com/fpseverino/EmmeQuTiTi), a sample iOS app that demonstrates the use of MQTT NIO in an iOS environment for instant messaging, built as part of the same course project.
 
 ## Topics
 
