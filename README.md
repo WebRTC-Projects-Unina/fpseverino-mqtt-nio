@@ -100,7 +100,7 @@ Another best practice in the Swift ecosystem when dealing with objects that need
 These methods take a closure as a parameter, create and configure the object, pass it to the closure, and then clean up the object after the closure has finished executing.
 This pattern ensures that resources are properly managed and released, even in the presence of errors.
 
-In MQTT NIO v3, you had to initialize an `MQTTClient`, call the `connect()` method to establish a connection to the broker, then when done with the client, call the `disconnect()` method to close the connection and call `shutdown()` to release all resources used by the client.
+In MQTT NIO v2, you had to initialize an `MQTTClient`, call the `connect()` method to establish a connection to the broker, then when done with the client, call the `disconnect()` method to close the connection and call `shutdown()` to release all resources used by the client.
 This approach was error-prone, as it was easy to forget to call `connect()` and especially `disconnect()` and `shutdown()`, meaning you could end up with an `MQTTClient` that was not connected to the broker, or with leaked resources that were not properly released.
 
 > UX of `MQTTClient` in MQTT NIO v2
@@ -257,3 +257,15 @@ try await connection.subscribe(to: [subscribeInfo]) { subscription in
 ```
 
 The subscription management redesign was tracked in [#181](https://github.com/swift-server-community/mqtt-nio/issues/181), and resolved by PRs [#11](https://github.com/fpseverino/mqtt-nio/pull/11), [#12](https://github.com/fpseverino/mqtt-nio/pull/12) and [#15](https://github.com/fpseverino/mqtt-nio/pull/15).
+
+### Future Work
+
+MQTT NIO v3 is still a work in progress.
+There are still some sub-issues of [#176](https://github.com/swift-server-community/mqtt-nio/issues/176) to be resolved, such as:
+
+- [#184](https://github.com/swift-server-community/mqtt-nio/issues/184): Adding the ability, for testing purposes, to create an `MQTTConnection` from a `NIOAsyncTestingChannel` instead of a real TCP connection. This will allow writing unit tests for the `MQTTConnection` actor without needing to connect to a real MQTT broker and simulate broker responses by writing directly to the `NIOAsyncTestingChannel`.
+- [#187](https://github.com/swift-server-community/mqtt-nio/issues/187): Allowing the cancellation of pending operations (such as writing packets or awaiting responses from the broker) when the underlying `Task` is cancelled.
+- [#188](https://github.com/swift-server-community/mqtt-nio/issues/188): Enabling Swift 6 language mode and the upcoming Swift feature `"NonisolatedNonsendingByDefault"`. The former will enforce stricter concurrency checks, eliminating data race errors at compile time, while the latter will make it easier to work with `actor`s and concurrency in general.
+- [#182](https://github.com/swift-server-community/mqtt-nio/issues/182): Implementing the previously mentioned `MQTTClient` type that holds a pool of `MQTTConnection`s and offers load balancing and connection management features.
+
+There are also [other issues](https://github.com/swift-server-community/mqtt-nio/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22breaking%20change%22) that appeared over the years in MQTT NIO v2 that require a breaking change to be resolved, which could be addressed in MQTT NIO v3.
